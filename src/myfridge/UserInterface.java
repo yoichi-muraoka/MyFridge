@@ -31,22 +31,55 @@ public class UserInterface {
 		// 番号に応じて画面を呼び出す
 		switch(choice) {
 			case 1:
-				System.out.println("アイテム一覧");
+				showItems();
 				break;
 			case 2:
-				System.out.println("賞味期限切れ一覧");
+				showExpiredItems();
 				break;
 			case 3:
-				System.out.println("アイテム追加");
+				addItem();
 				break;
 			case 4:
-				System.out.println("アイテム削除");
+				deleteItem();
 				break;
 			default:
 				System.out.println("終了");
 		}
 
 		scanner.close();
+	}
+
+
+	/**
+	 * アイテム一覧表示画面の生成を担うメソッド
+	 */
+	private void showItems() {
+		System.out.println("アイテム一覧");
+	}
+
+
+	/**
+	 * 賞味期限切れ一覧画面の生成を担うメソッド
+	 */
+	private void showExpiredItems() {
+		System.out.println("賞味期限切れ一覧");
+	}
+
+
+	/**
+	 * アイテム追加画面の生成を担うメソッド
+	 * ユーザーから、アイテム名と賞味期限の入力を受け付ける
+	 */
+	private void addItem() {
+		System.out.println("アイテム追加");
+	}
+
+	/**
+	 * アイテム削除画面の生成を担うメソッド
+	 * ユーザーから削除対象のアイテム番号(Listのインデックス番号)の入力を受け付ける
+	 */
+	private void deleteItem() {
+		System.out.println("アイテム削除");
 	}
 
 }
