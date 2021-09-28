@@ -9,12 +9,21 @@ import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * List<Item> と items.txt の相互変換を担うクラス
  */
 public class ListTextConverter {
+
+	private SimpleDateFormat sdf; //日付の形式
+
+	public ListTextConverter() {
+		// 文字列 ⇔ Date型の相互変換用フォーマッター
+		sdf = new SimpleDateFormat("y年MM月dd日");
+	}
+
 
 	/**
 	 * items.txtを読み込み、List<Item>に変換する
@@ -27,9 +36,6 @@ public class ListTextConverter {
 		try {
 			InputStream is = new FileInputStream("items.txt");
 			try(var br = new BufferedReader(new InputStreamReader(is))) {
-				// 文字列の日付 ⇒ Date型への変換用
-				var sdf = new SimpleDateFormat("y年MM月dd日");
-
 				String line;
 				while((line = br.readLine()) != null) {
 					// 半角スペースを区切りとして配列に変換
@@ -57,10 +63,15 @@ public class ListTextConverter {
 	 * @param itemList アイテムのリスト
 	 */
 	public void write(List<Item> itemList) {
+		itemList = new ArrayList<>();
+		itemList.add(new Item(new Date(), "豚肉"));
+		itemList.add(new Item(new Date(), "鶏肉"));
+		itemList.add(new Item(new Date(), "牛肉"));
+
 		try(var ps = new PrintStream("items.txt")) {
-			ps.println("2021年10月10日 ピーマン");
-			ps.println("2021年10月11日 キュウリ");
-			ps.println("2021年10月13日 トマト");
+			for(Item item :  itemList) {
+				ps.println(sdf.format(item.getExpDate()) + " " + item.getName());
+			}
 		}
 		catch(IOException e) {
 			e.printStackTrace();
