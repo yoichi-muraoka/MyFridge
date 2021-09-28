@@ -62,16 +62,32 @@ public class ItemServiceImpl implements ItemService {
 		return expiredList;
 	}
 
+
+	/**
+	 * アイテムを追加
+	 */
 	@Override
 	public void addItem(Item item) {
-		// TODO 自動生成されたメソッド・スタブ
-
+		// 全アイテムのリストを取得
+		List<Item> list = converter.read();
+		// リストの末尾に、引数として渡されたアイテムを追加
+		list.add(item);
+		// リストをテキストに書き込んで更新
+		converter.write(list);
 	}
 
+
+	/**
+	 * アイテムを削除
+	 */
 	@Override
 	public void deleteItem(int index) {
-		// TODO 自動生成されたメソッド・スタブ
-
+		// 全アイテムのリストを取得
+		List<Item> list = converter.read();
+		// インデックス番号を元に、リストからアイテムを削除
+		list.remove(index);
+		// リストをテキストに書き込んで更新
+		converter.write(list);
 	}
 
 

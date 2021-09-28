@@ -1,6 +1,7 @@
 package myfridge;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -120,7 +121,13 @@ public class UserInterface {
 			days = 7;
 		}
 
+		// 賞味期限日をDate型で取得
+		var c = Calendar.getInstance();
+		c.add(Calendar.DATE, days);
+		var expDate = c.getTime();
+
 		// 保存処理(テキストファイルへの書き込み)
+		service.addItem(new Item(expDate, name));
 
 		System.out.println(name + "を冷蔵庫に入れました");
 		System.out.println("賞味期限を" + days + "日後に設定しました");
@@ -138,6 +145,7 @@ public class UserInterface {
 
 		try {
 			int index = Integer.parseInt(strIndex);
+			service.deleteItem(index);
 			System.out.println(index + "番のアイテムを削除しました");
 		}
 		catch(NumberFormatException e) {
