@@ -154,6 +154,9 @@ public class UserInterface {
 		catch(NumberFormatException e) {
 			System.out.println("削除をキャンセルしました");
 		}
+		catch(IndexOutOfBoundsException e) {
+			System.out.println("番号に該当するアイテムはありません");
+		}
 	}
 
 }
