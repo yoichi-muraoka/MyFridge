@@ -1,5 +1,8 @@
 package test;
 
+import java.util.List;
+
+import myfridge.Item;
 import myfridge.ListTextConverter;
 
 public class ListTextConverterTest {
@@ -12,7 +15,12 @@ public class ListTextConverterTest {
 
 	// テキストファイルの読み込みテスト
 	private static void testRead() {
-		converter.read();
+		List<Item> list =  converter.read();
+
+		for(Item item : list) {
+			System.out.println(item.getExpDate());
+			System.out.println(item.getName());
+		}
 	}
 
 }

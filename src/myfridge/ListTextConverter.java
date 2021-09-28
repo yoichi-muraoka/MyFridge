@@ -34,9 +34,8 @@ public class ListTextConverter {
 				while((line = br.readLine()) != null) {
 					// 半角スペースを区切りとして配列に変換
 					String[] item = line.split(" ");
-					// 文字列の日付 ⇒ Date型への変換
-					System.out.println(sdf.parse(item[0]));
-					System.out.println(item[1]);
+					// 文字列の日付をDate型への変換しつつ、Listに追加
+					list.add(new Item(sdf.parse(item[0]), item[1]));
 				}
 			}
 			catch (ParseException e) {
