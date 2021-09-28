@@ -1,5 +1,6 @@
 package myfridge;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -67,6 +68,9 @@ public class UserInterface {
 		System.out.println("冷蔵庫の中身 [賞味期限]");
 		System.out.println("-----------------------");
 
+		// 日付出力時のフォーマッター
+		var sdf = new SimpleDateFormat("M/d");
+
 		// データの取得と出力
 		ItemService service = new ItemServiceImpl();
 		List<Item> list = service.getItemList();
@@ -74,7 +78,7 @@ public class UserInterface {
 			Item item = list.get(i);
 			System.out.print(i + "：");
 			System.out.print(item.getName() + " ");
-			System.out.println("[" + item.getExpDate() + "]");
+			System.out.println("[" + sdf.format(item.getExpDate()) + "]");
 		}
 	}
 
