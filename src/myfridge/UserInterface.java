@@ -145,6 +145,7 @@ public class UserInterface {
 
 		try {
 			int index = Integer.parseInt(strIndex);
+			service.deleteItem(index);
 			System.out.println(index + "番のアイテムを削除しました");
 		}
 		catch(NumberFormatException e) {
