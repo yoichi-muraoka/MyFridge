@@ -140,7 +140,10 @@ public class UserInterface {
 	 */
 	private void deleteItem() {
 		System.out.println("何番のアイテムを削除しますか？");
-		System.out.println("キャンセルの場合、適当なアルファベットを入力してください");
+		System.out.println("キャンセルの場合、適当なアルファベットを入力してください\n");
+
+		showItems();
+
 		String strIndex = scanner.nextLine();
 
 		try {
@@ -150,6 +153,9 @@ public class UserInterface {
 		}
 		catch(NumberFormatException e) {
 			System.out.println("削除をキャンセルしました");
+		}
+		catch(IndexOutOfBoundsException e) {
+			System.out.println("番号に該当するアイテムはありません");
 		}
 	}
 
