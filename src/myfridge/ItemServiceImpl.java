@@ -54,6 +54,9 @@ public class ItemServiceImpl implements ItemService {
 		// ①各アイテムを拡張for文で取り出し
 		for(Item item : itemList) {
 			// ②賞味期限切れの場合、expiredListに追加
+			if(isExpired(item.getExpDate())) {
+				expiredList.add(item);
+			}
 		}
 
 		return expiredList;
