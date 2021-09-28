@@ -1,5 +1,7 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import myfridge.Item;
@@ -16,7 +18,11 @@ public class ListTextConverterTest {
 
 	// テキストファイルへの書き込みテスト
 	private static void testWrite() {
-		converter.write(null);
+		List<Item> itemList = new ArrayList<>();
+		itemList.add(new Item(new Date(), "ほうれん草"));
+		itemList.add(new Item(new Date(), "モロヘイヤ"));
+		itemList.add(new Item(new Date(), "キャベツ"));
+		converter.write(itemList);
 	}
 
 	// テキストファイルの読み込みテスト

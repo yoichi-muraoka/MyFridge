@@ -9,7 +9,6 @@ import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -63,11 +62,6 @@ public class ListTextConverter {
 	 * @param itemList アイテムのリスト
 	 */
 	public void write(List<Item> itemList) {
-		itemList = new ArrayList<>();
-		itemList.add(new Item(new Date(), "豚肉"));
-		itemList.add(new Item(new Date(), "鶏肉"));
-		itemList.add(new Item(new Date(), "牛肉"));
-
 		try(var ps = new PrintStream("items.txt")) {
 			for(Item item :  itemList) {
 				ps.println(sdf.format(item.getExpDate()) + " " + item.getName());
