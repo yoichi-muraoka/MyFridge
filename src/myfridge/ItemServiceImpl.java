@@ -77,10 +77,17 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 
+	/**
+	 * アイテムを削除
+	 */
 	@Override
 	public void deleteItem(int index) {
-		// TODO 自動生成されたメソッド・スタブ
-
+		// 全アイテムのリストを取得
+		List<Item> list = converter.read();
+		// インデックス番号を元に、リストからアイテムを削除
+		list.remove(index);
+		// リストをテキストに書き込んで更新
+		converter.write(list);
 	}
 
 
