@@ -10,7 +10,13 @@ public class ListTextConverterTest {
 	private static ListTextConverter converter = new ListTextConverter();
 
 	public static void main(String[] args) {
+		testWrite();
 		testRead();
+	}
+
+	// テキストファイルへの書き込みテスト
+	private static void testWrite() {
+		converter.write(null);
 	}
 
 	// テキストファイルの読み込みテスト

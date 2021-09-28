@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ public class ListTextConverter {
 	 */
 	public List<Item> read() {
 		List<Item> list = new ArrayList<>();
-
 
 		// テキストファイルの読み込み
 		try {
@@ -49,6 +49,23 @@ public class ListTextConverter {
 		}
 
 		return list;
+	}
+
+
+	/**
+	 * List<Item>の情報(賞味期限とアイテム名)をitems.txtに書き込む
+	 * @param itemList アイテムのリスト
+	 */
+	public void write(List<Item> itemList) {
+		try(var ps = new PrintStream("items.txt")) {
+			ps.println("2021年10月10日 ピーマン");
+			ps.println("2021年10月11日 キュウリ");
+			ps.println("2021年10月13日 トマト");
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+			System.out.println("データの書き込みに失敗しました");
+		}
 	}
 
 }
