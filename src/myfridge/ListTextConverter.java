@@ -26,7 +26,10 @@ public class ListTextConverter {
 			try(var br = new BufferedReader(new InputStreamReader(is))) {
 				String line;
 				while((line = br.readLine()) != null) {
-					System.out.println(line);
+					// 半角スペースを区切りとして配列に変換
+					String[] item = line.split(" ");
+					System.out.println(item[0]);
+					System.out.println(item[1]);
 				}
 			}
 		}
