@@ -1,5 +1,7 @@
 package myfridge;
 
+//適当な追記
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
