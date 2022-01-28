@@ -1,3 +1,4 @@
+//適当な追記
 package myfridge;
 
 import java.text.ParseException;
