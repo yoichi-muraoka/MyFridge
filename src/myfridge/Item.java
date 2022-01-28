@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 賞味期限、アイテム名を保持するためのフィールドをもつクラス
  * ⇒ DTO (Data Transfer Object)としての役割を担う
+ * 追記XXXX
  */
 public class Item {
 
