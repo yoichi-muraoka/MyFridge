@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// 適当な追記
+
 /**
  * アイテムを操作するためのクラス
  * (ItemServiceインターフェースの実装)
